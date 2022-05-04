@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: content-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: 0.3s all ease;
+        }
+
+        .conlac {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 6px;
+            margin: 20px 5px;
+            display: inline-block;
+            /* display: none; */
+        }
+
+        .cham-tron {
+            width: 8px;
+            height: 8px;
+            background: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .vi-tri-ket-qua {
+            display: inline-block;
+        }
+
+        .result-box {
+            /* width: 80%; */
+            min-width: 412px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 5px;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+
+        button {
+            margin: 20px;
+            display: block;
+            /* width: 100px; */
+            padding: 8px;
+            border: 0;
+            border-radius: 16px;
+            font-weight: bold;
+            background: orangered;
+            color: white;
+            margin-top: 80px;
+            font-size: 50px;
+            margin: 0 auto;
+            /* width: 100%; */
+        }
+
+        .ket-qua {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Define the boxes -->
+    <div style="width: 406px; margin: 0 auto;">
+        <div title="1 Điểm" value="1" class="conlac mot-diem">
+            <div class="cham-tron" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+        </div>
+
+        <div title="2 Điểm" value="2" class="conlac hai-diem">
+            <div class="cham-tron" style="top: 25%; left: 25%;"></div>
+            <div class="cham-tron" style="bottom: 25%; right: 25%;"></div>
+        </div>
+
+        <div title="3 Điểm" value="3" class="conlac ba-diem">
+            <div class="cham-tron" style="top: 18%; left: 18%;"></div>
+            <div class="cham-tron" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+            <div class="cham-tron" style="bottom: 18%; right: 18%;"></div>
+        </div>
+
+        <div title="4 Điểm" value="4" class="conlac bon-diem">
+            <div class="cham-tron" style="top: 18%; left: 18%;"></div>
+            <div class="cham-tron" style="bottom: 18%; left: 18%;"></div>
+            <div class="cham-tron" style="top: 18%; right: 18%;"></div>
+            <div class="cham-tron" style="bottom: 18%; right: 18%;"></div>
+        </div>
+
+        <div title="5 Điểm" value="5" class="conlac nam-diem">
+            <div class="cham-tron" style="top: 18%; left: 18%;"></div>
+            <div class="cham-tron" style="bottom: 18%; left: 18%;"></div>
+            <div class="cham-tron" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+            <div class="cham-tron" style="top: 18%; right: 18%;"></div>
+            <div class="cham-tron" style="bottom: 18%; right: 18%;"></div>
+        </div>
+
+        <div title="6 Điểm" value="6" class="conlac sau-diem">
+            <div class="cham-tron" style="top: 12%; left: 20%;"></div>
+            <div class="cham-tron" style="bottom: 12%; left: 20%;"></div>
+            <div class="cham-tron" style="top: 50%; left: 28%; transform: translate(-50%, -50%);"></div>
+            <div class="cham-tron" style="top: 50%; right: 12%; transform: translate(-50%, -50%);"></div>
+            <div class="cham-tron" style="top: 12%; right: 20%;"></div>
+            <div class="cham-tron" style="bottom: 12%; right: 20%;"></div>
+        </div>
+    </div>
+    <!-- Define the boxes -->
+    <!-- Define the buttons and result of Math -->
+    <div class="result-box">
+        <h4>Tài xỉu tại nhà, chơi tới già cũng không thắng hehe...😁😁😁</h4>
+        <h4 class="ket-qua">Kết quả: </h4>
+        <div style="display: flex;">
+            <div style="width: 50%; height: 200px; display: flex; margin-top: 30px;">
+                <div class="vi-tri-ket-qua">
+                    <div class="conlac"></div>
+                </div>
+                <div class="vi-tri-ket-qua">
+                    <div class="conlac"></div>
+                </div>
+                <div class="vi-tri-ket-qua">
+                    <div class="conlac"></div>
+                </div>
+            </div>
+            <div style="width: 50%; text-align: center; font-size: 100px">
+                <span class="ve"></span>
+                <span style="display: block; font-size: 20px;" class="diem"></span>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <!-- <button onclick="run();">Lắc</button> -->
+        <div style="display: flex;">
+            <button disabled></button>
+        </div>
+    </div>
+
+
+    <script>
+
+        var mot = document.querySelector('.mot-diem');
+        var hai = document.querySelector('.hai-diem');
+        var ba = document.querySelector('.ba-diem');
+        var bon = document.querySelector('.bon-diem');
+        var nam = document.querySelector('.nam-diem');
+        var sau = document.querySelector('.sau-diem');
+        var inkq = document.querySelector('.ket-qua');
+        var ve = document.querySelector('.ve');
+        var diem = document.querySelector('.diem');
+
+        var viTri = document.querySelectorAll('.vi-tri-ket-qua');
+
+        var lac = document.querySelector('button');
+
+        function auto() {
+            var i = 65;
+            setInterval(function () {
+                lac.innerHTML = i;
+                i--;
+
+                if (i < 0) {
+                    i = 65;
+                    runs();
+                }
+
+            }, 1000);
+        }
+
+        auto();
+
+        function run() {
+            lac.disabled = 'true';
+            var i = 10;
+            var contDown;
+            contDown = setInterval(function () {
+                lac.innerHTML = i;
+                i--;
+
+                if (i < 0) {
+                    clearInterval(contDown);
+                    i = 10;
+                    lac.disabled = '';
+                    lac.innerHTML = 'Lắc';
+                    runs();
+                }
+
+            }, 1000);
+        }
+
+
+        function runs() {
+
+            viTri[0].innerHTML = '<div></div>'
+            viTri[1].innerHTML = '<div></div>';
+            viTri[2].innerHTML = '<div></div>';
+
+            let cl1 = Math.floor(Math.random() * 6) + 1;
+            let cl2 = Math.floor(Math.random() * 6) + 1;
+            let cl3 = Math.floor(Math.random() * 6) + 1;
+
+            tongDiem = cl1 + cl2 + cl3;
+
+            let ketQua = tongDiem >= 3 && tongDiem <= 11 ? 'Xỉu' : 'Tài';
+
+            inkq.innerHTML = 'Tổng ' + `${tongDiem}` + ' điểm ' + `${ketQua}`;
+
+            ve.innerHTML = `${ketQua}`;
+            diem.innerHTML = `${tongDiem}` + ' Điểm';
+
+            var getBox = (value) => {
+                if (value === 1)
+                    return mot;
+                else if (value === 2)
+                    return hai
+                else if (value === 3)
+                    return ba
+                else if (value === 4)
+                    return bon
+                else if (value === 5)
+                    return nam
+                else if (value === 6)
+                    return sau
+            }
+
+            vx1 = getBox(cl1).cloneNode(10);
+            vx2 = getBox(cl2).cloneNode(10);
+            vx3 = getBox(cl3).cloneNode(10);
+
+            viTri[0].appendChild(vx1);
+            viTri[1].appendChild(vx2);
+            viTri[2].appendChild(vx3);
+
+        }
+
+    </script>
+</body>
+
+</html>
