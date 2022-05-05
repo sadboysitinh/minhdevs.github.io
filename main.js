@@ -1,4 +1,4 @@
-// Animation progressbar
+// Animation progressbars
 var progressbar = document.querySelectorAll('[role="progressbar"]');
 
 const progressAnimation = (element) => {
